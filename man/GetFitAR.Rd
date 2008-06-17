@@ -21,7 +21,7 @@ GetFitAR(z, p, ARModel = "ARz", ...)
 
 \details{
 This is just a shell which simply invokes either
-\code{GetFitARp} or \code{GetFitARz}}
+\code{GetFitARp} or \code{GetFitARz}
 }
 
 \value{

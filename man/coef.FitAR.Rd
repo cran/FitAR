@@ -22,6 +22,7 @@ McLeod, A.I. and Zhang, Y. (2006).
 Partial autocorrelation parameterization for subset autoregression.  
 Journal of Time Series Analysis, 27, 599-612.
 }
+
 \author{ A.I. McLeod and Y. Zhang}
 
 \examples{
@@ -33,6 +34,5 @@ Journal of Time Series Analysis, 27, 599-612.
  outALS<-FitAR(SeriesA, c(1,2,7), ARModel="ARp")
  coef(outALS)
 
-  }
 }
 \keyword{ ts }

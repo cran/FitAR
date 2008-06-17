@@ -6,6 +6,7 @@ Computation of the loglikelihood is O(1) flops in repeated
 evaluations of the loglikelihood holding the data fixed and varying
 the parameters. This is useful in exact MLE estimation.
 }
+
 \usage{
 FastLoglikelihoodAR(phi, n, CD)
 }
@@ -18,9 +19,11 @@ FastLoglikelihoodAR(phi, n, CD)
 \details{
 The details of this computation are described in McLeod and Zhang (2006). 
 }
+
 \value{
 Loglikelihood
 }
+
 \references{ 
 McLeod, A.I. and Zhang, Y. (2006).  
 Partial autocorrelation parameterization for subset autoregression.  
@@ -48,6 +51,5 @@ L2<-FastLoglikelihoodAR(phi,n,cd)
 out<-c(L1,L2)
 names(out)<-c("direct","fast")
 out
-
 }
 \keyword{ ts }

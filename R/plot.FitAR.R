@@ -1,7 +1,5 @@
 `plot.FitAR` <-
-function(x, clearGraphics=TRUE, terse=TRUE, ...){
-if (clearGraphics)
-    graphics.off()
+function(x, terse=TRUE, ...){
 #Ljung-Box plot and residual acf plot
 layout(matrix(c(1,2,1,2),ncol=2))
 LBQPlot(x)

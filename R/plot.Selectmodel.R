@@ -1,8 +1,8 @@
 "plot.Selectmodel" <-
 function(x, ...){
-ans<-x #for clairty we rename object
-old.par <- par(no.readonly = TRUE)
+ans<-x #for clarity we rename object
 par(mar = c(5,4,4,5)+0.1)
+on.exit(par(mar=c(5, 4, 4, 2) + 0.1)) #default
 if (is.list(ans)){    
     X<-Y<-a<-numeric(0)
     for (i in 1:length(ans)){
@@ -32,7 +32,6 @@ if (is.matrix(ans)){
     axis(4,at=Y,labels=r)
     mtext(side=4, line=2.7, text="Relative Plausibility")
     }
-par(old.par)
 invisible()
 }
 

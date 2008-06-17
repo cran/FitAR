@@ -12,9 +12,7 @@ Get1G(phi, n)
   \item{phi}{ a vector of AR coefficients }
   \item{n}{ length of series }
 }
-\details{
-  
-}
+
 \value{
 A vector used in the mle computation of the mean.
 }

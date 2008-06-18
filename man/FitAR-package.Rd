@@ -8,10 +8,14 @@ FitAR
 }
 \description{
 For model estimation the main function is FitAR for which generic methods
-print, summary, coef and plot are implemented.
+print, summary, coef, plot and predict are implemented.
 For model identification, there is a new PacfPlot for subset ARz idenfication.
 Subset models may also be selected using AIC, BIC and UBIC criteria
 with the function SelectModel.
+The main fitting function is FitAR.
+New methods and generic functions, BoxCox, Boot and sdfplot are given.
+Methods for print, summary, coef, residuals, fitted and predict implemented.
+
 }
 
 \details{
@@ -20,7 +24,7 @@ with the function SelectModel.
 Package: \tab FitAR\cr
 Type: \tab Package\cr
 Version: \tab 1.5\cr
-Date: \tab 2008-06-17\cr
+Date: \tab 2008-06-18\cr
 License: \tab GPL (>= 2)\cr
 LazyLoad: \tab yes\cr
 }
@@ -55,6 +59,7 @@ Model Applications:
 Methods Functions:  
 \code{\link{coef}},
 \code{\link{fitted}},
+\code{\link{predict}},
 \code{\link{print}},
 \code{\link{summary}},
 \code{\link{residuals}}  
@@ -63,8 +68,12 @@ Useful Utility Functions:
 \code{\link{Readts}}, 
 \code{\link{cts}}   
 
-
+New Generic and Methods Functions:
+\code{\link{Boot}}, 
+\code{\link{BoxCox}}, 
+\code{\link{sdfplot}} 
 }
+
 \author{
 A. I. McLeod and Ying Zhang
 

@@ -58,7 +58,7 @@ BoxCox.ts		Box-Cox Analysis for a Time Series
 coef.FitAR		Display Estimated Parameters from Output of "FitAR"
 fitted.FitAR		Fitted Values from "FitAR" Object
 plot.FitAR		Plot Method for "FitAR" Object
-predict.FitAR
+predict.FitAR		Predict Method for "FitAR" Object
 print.FitAR		Print Method for "FitAR" Object 
 residuals.FitAR		Extract Residuals from "FitAR" Object
 summary.FitAR		Summary Method for "FitAR" Object

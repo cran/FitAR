@@ -2,6 +2,11 @@
 function(x,y){
     if (!is.ts(x))
         stop("error: x must be ts object")
+    if (nargs() != 2)
+        stop("error: exactly two arguments required")
+    if (is.ts(y))
+        if(!all(end(x)+c(1,0) == start(y)))
+            warning("y coerced to vector and tsp attribute ignored")
     f <- tsp(x)[3]
     y <- as.vector(y)
     ny <- length(y)
@@ -14,4 +19,3 @@ function(x,y){
     z[(nz-ny+1):nz]<-y
     z
 }
-

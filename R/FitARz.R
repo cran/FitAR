@@ -70,7 +70,7 @@ RacfMatrix<-matrix(c(racf,sdRacf),ncol=2)
 dimnames(RacfMatrix)<-list(1:MaxLag, c("ra", "Sd(ra)"))
 LBQ<-LjungBoxTest(res, lag.max=MaxLag, k=length(zetaHat))
 if (SubQ) {
-    ModelTitle<-deparse(pvec, width.cutoff=180)
+    ModelTitle<-deparse(as.numeric(pvec), width.cutoff=180)
     ModelTitle<-paste("ARz",substr(ModelTitle,2,nchar(ModelTitle)),sep="")
     ModelTitle<-gsub(" ", "", ModelTitle)
 }

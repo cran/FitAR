@@ -17,6 +17,6 @@ if (logSdf){
     sdf<-log(sdf)
     yl<-"Log Sdf"
     }    
-plot(f,sdf,type="l",xlab="frequency",ylab=yl, main=main, sub=sub, ...)
+plot(f,sdf,type="l",xlab="frequency",ylab=yl, main=main, sub=sub, lwd=3, col="blue", ...)
 }
 

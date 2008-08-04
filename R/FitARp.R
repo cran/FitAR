@@ -54,7 +54,7 @@ else {
     }
 }
 if (SubsetQ) {
-    ModelTitle<-deparse(pvec,width.cutoff=180)
+    ModelTitle<-deparse(as.numeric(pvec),width.cutoff=180)
     ModelTitle<-paste("ARp",substr(ModelTitle,2,nchar(ModelTitle)),sep="")
     ModelTitle<-gsub(" ", "", ModelTitle)
 }

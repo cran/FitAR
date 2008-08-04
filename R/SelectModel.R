@@ -2,8 +2,7 @@
 function(z, lag.max=15, ARModel=c("AR","ARz","ARp"), Criterion="default", Best=3, Candidates=5){
 stopifnot(length(z)>0, length(z)>lag.max, lag.max>1, Best>0, Candidates>0)
 BestCandidates<-Candidates
-if (length(ARModel)>1) 
-    ARModel<-ARModel[1]
+ARModel <- match.arg(ARModel)
 if (Best > BestCandidates)
     BestCandidates<-Best
 if (ARModel=="ARp") #subset ARp

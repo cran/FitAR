@@ -14,7 +14,8 @@ parametric bootstrap.  Generic function for "Boot" method.
   \item{...}{ optional arguments }
 }
 \value{
-A simulated time series with the same length as the original fitted time series is produced.
+A simulated time series with the same length as the original fitted time series is produced when R=1.
+When R>1, a matrix with R columns is produced with each column a separate bootstrap realization.
 }
 \author{ A.I. McLeod and Y. Zhang}
 

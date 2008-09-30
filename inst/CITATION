@@ -1,0 +1,19 @@
+citHeader("To cite FitAR in publications use:")
+
+citEntry(entry = "Article",
+  title        = "Improved Subset Autoregression: With {R} Package",
+  author       = personList(as.person("A. I. McLeod"),
+                   as.person("Ying Zhang")),
+  journal      = "Journal of Statistical Software",
+  year         = "2008",
+  volume       = "28",
+  number       = "2",
+  url          = "http://www.jstatsoft.org/v28/i02/",
+
+  textVersion  =
+  paste("A. I. McLeod, Ying Zhang (2008).",
+        "Improved Subset Autoregression: With R Package.",
+        "Journal of Statistical Software 28(2).",
+        "URL http://www.jstatsoft.org/v28/i02/.")
+)
+

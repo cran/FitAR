@@ -4,7 +4,7 @@ function(z,p,lag.max="default", MLEQ=FALSE)
 stopifnot(length(z)>0, length(z)>length(p), length(p)>0)
 n<-length(z)
 if (lag.max=="default")
-    MaxLag <- ceiling(min(length(z)/4,min(max(length(z)/4,30),100)))
+    MaxLag <- min(300, ceiling(length(z)/5))
 else
     MaxLag <- lag.max
 pvec <- sort(p)

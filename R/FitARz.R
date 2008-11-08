@@ -5,9 +5,8 @@ function (z, p, demean = TRUE, MeanMLEQ = FALSE, lag.max = "default")
         0)
     ztsp <- tsp(z)
     if (lag.max == "default") 
-        MaxLag = ceiling(min(length(z)/4, min(max(length(z)/4, 
-            30), 100)))
-    else MaxLag = lag.max
+    	MaxLag <- min(300, ceiling(length(z)/5))
+    else 	MaxLag = lag.max
     MaxIter <- 10
     n <- length(z)
     pvec <- sort(p)

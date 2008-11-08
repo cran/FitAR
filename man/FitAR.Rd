@@ -37,7 +37,7 @@ The subset ARp model can be fit by exact MLE using the R function \code{arima}
 or by least-squares.
 
 The default for lag.max is
-ceiling(min(length(z)/4, min(max(length(z)/4, 30), 100))).
+min(300, ceiling(length(z)/5))
 }
 
 \value{

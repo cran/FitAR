@@ -1,5 +1,6 @@
 `summary.FitAR` <-
 function(object, ...){
+RSQ<- 1- (object$sigsqHat)/var(object$z)
 LL<-object$loglikelihood
 k<-length(object$pvec)
 if (!is.null(object$demean)&&object$demean)
@@ -29,7 +30,8 @@ OUTIC<-paste("loglikelihood =",round(LL,3),",  aic =", round(aic,1),",  bic = ",
 if (subQ) 
     OUTIC<-paste(OUTIC, ", UBIC = ", round(ubic,1))
 cat(OUTIC, fill=TRUE)
-cat(paste("series mean =", object$muHat, ",  rmse =", sqrt(object$sigsqHat)),fill=TRUE)
+cat(paste("series mean = ", object$muHat, ",  rmse = ", sqrt(object$sigsqHat),
+   ",  R^2 = ", 100*round(RSQ,5), "%", sep=""), fill=TRUE)
 invisible()
 }
 

@@ -12,7 +12,8 @@ Method for class "ar" for sdfplot.
   \item{\dots}{ optional arguments }
 }
 \value{
-None. Plot is produced using plot
+Plot is produced using plot.
+Matrix with 2 columns containing the frequencies and spectral density is returned invisibly.
 }
 \author{ A.I. McLeod }
 

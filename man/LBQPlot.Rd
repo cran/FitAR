@@ -5,10 +5,13 @@
 The Ljung-Box portmanteau p-value is plotted vs lag.
 }
 \usage{
-LBQPlot(obj, SquaredQ=FALSE)
+LBQPlot(res, lag.max = 30, StartLag = k + 1, k = 0, SquaredQ = FALSE)
 }
 \arguments{
-  \item{obj}{ output from FitAR}
+  \item{res}{ residuals }
+  \item{lag.max}{ maximum lag }
+  \item{StartLag}{ starting lag }
+  \item{k}{ number of AR parameters fit }
   \item{SquaredQ}{ default, SquaredQ = FALSE, regular autocorrelations. If SquaredQ = TRUE use
   autocorrelations of squared residuals. }
 }
@@ -38,7 +41,8 @@ is used. }
 #fit subset AR and plot diagnostic check
  data(SeriesA)
  out<-FitAR(SeriesA, c(1,2,7), ARModel="ARp")
- LBQPlot(out)
+ res<-resid(out)
+ LBQPlot(res)
 #note that plot produces LBQPlot and RacfPlot
  plot(out)
 }

@@ -23,8 +23,8 @@ Methods for print, summary, coef, residuals, fitted and predict implemented.
 \tabular{ll}{
 Package: \tab FitAR\cr
 Type: \tab Package\cr
-Version: \tab 1.74\cr
-Date: \tab 2008-11-08\cr
+Version: \tab 1.79\cr
+Date: \tab 2009-10-13\cr
 License: \tab GPL (>= 2)\cr
 LazyLoad: \tab yes\cr
 }
@@ -98,10 +98,6 @@ Journal of Statistical Software.
 \keyword{ ts }
 
 \keyword{ package }
-
-\seealso{
-\code{\link[ltsa:ltsa-package]{<ltsa>}}
-}
 
 \examples{
 #Scripts are given below for all Figures and Tables in McLeod and Zhang (2008b).

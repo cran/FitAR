@@ -29,8 +29,8 @@ is simply \eqn{x^\lambda}{x^lambda}.
 When \eqn{\lambda=0}{lambda=0}, it is log in both cases.
 
 The log of the Jacobian is 
-\eqn{(\lambda-1)\sum_{t=D+1}^{n} \log(z_t)}
-{(lambda-1)*sum(log(z[(D+1):n])},
+\eqn{(\lambda-1)\sum_{t=D+1}^n \log(z_t)}{%
+(lambda-1)*sum(log(z[(D+1):n])},
 where \eqn{\lambda}{lambda} is the transformation,
 n=length(z), 
 z is the vector of data and D = d + ds*s,

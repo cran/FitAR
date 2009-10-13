@@ -1,18 +1,21 @@
 `plot.FitAR` <-
 function(x, terse=TRUE, ...){
+res <- resid(x)
+n <- length(res)
+k <- nrow(x$covHat)
+lag.max <- min(n/4,100) 
 #Ljung-Box plot and residual acf plot
 layout(matrix(c(1,2,1,2),ncol=2))
-LBQPlot(x)
+LBQPlot(res, k=k, lag.max=lag.max)
 RacfPlot(x)
 if (terse) return(invisible())
 #squared residuals
 #Ljung-Box plot and residual acf plot
 layout(matrix(c(1,2,1,2),ncol=2))
-LBQPlot(x,  SquaredQ=TRUE)
+LBQPlot(res, k=k, lag.max=lag.max, SquaredQ=TRUE)
 RacfPlot(x, SquaredQ=TRUE)
 #normal plot and box plot
 layout(matrix(c(1,2,1,2),ncol=2))
-res<-resid(x)
 ans<-JarqueBeraTest(res)
 sti<-paste("Jarque-Bera Test, p-value =",format.pval(ans$pvalue))
 #qqnorm(res, ylab="residuals",main=sti)

@@ -7,13 +7,13 @@ the first line in the file is a title, next few lines, beginning with a \#, are 
 and the remaining lines contain the data.  Here is an example: \cr
 
 \code{
-Changes In Global Temperature, Annual, 1880-1985  \cr
-\#Surface air "temperature change" for the globe, 1880-1985.  \cr
-\#Degrees Celsius. "Temperature change" actually means temperature  \cr
-\#Surface Air Temperature", `Journal of Geophysical Research`, Vol. 92, \cr
--.40    -.37    -.43    ....	 \cr
-...............			\cr
- .27     .42     .02     .30     .09     .05  \cr
+Changes In Global Temperature, Annual, 1880-1985  
+#Surface air "temperature change" for the globe, 1880-1985.  
+#Degrees Celsius. "Temperature change" actually means temperature  
+#Surface Air Temperature", `Journal of Geophysical Research`, Vol. 92, 
+-.40    -.37    -.43    ....	 
+...............			
+ .27     .42     .02     .30     .09     .05  
 }
 
 }

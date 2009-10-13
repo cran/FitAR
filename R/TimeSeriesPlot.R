@@ -1,5 +1,5 @@
 `TimeSeriesPlot` <-
-function(z, SubLength=Inf, aspect=0.25, type="l", ylab=NULL, main=NULL, ...){
+function(z, SubLength=Inf, aspect=0.25, type="l", xlab="Observation Number", ylab=NULL, main=NULL, ...){
 if (SubLength==Inf) {
     pin <- par("pin")
     default.aspect <- pin[2]/pin[1]
@@ -12,7 +12,7 @@ if (SubLength==Inf) {
     ti <- main
     if (is.null(ti))
         ti <- attr(z, "title")
-    plot(z, type=type,  main=ti, ylab=yl, ...)
+    plot(z, type=type,  main=ti, ylab=yl, xlab = xlab, ...)
     par(pin=pin)
     }
 else { #this part requires lattice library
@@ -22,7 +22,7 @@ else { #this part requires lattice library
     if (is.null(ti))
         ti <- attr(z, "title")
     if (nblocks ==1)
-        xyplot(z~(1:n) , aspect=aspect, type=type, ylab=ylab, xlab="Observation Number", main=ti, ...)
+        xyplot(z~(1:n) , aspect=aspect, type=type, ylab=ylab, xlab = xlab, main=ti, ...)
     else {
         y<-x<-numeric(0)
         u<-1:n
@@ -38,7 +38,7 @@ else { #this part requires lattice library
             x<-c(x,LastBlockx)
             }
     epoch<-ordered(rep(1:nblocks,rep(SubLength,nblocks)))
-    xyplot(y~x | epoch, aspect=aspect, type=type, ylab=ylab, xlab="Observation Number", scales=list(x="sliced",y="same"),strip=FALSE,main=ti, ...)
+    xyplot(y~x | epoch, aspect=aspect, type=type, ylab=ylab, xlab=xlab, scales=list(x="sliced",y="same"),strip=FALSE,main=ti, ...)
         }
     }
 }

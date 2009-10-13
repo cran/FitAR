@@ -14,7 +14,8 @@ Method for class "Arima" for sdfplot.
 }
 
 \value{
-None. Plot is produced using plo.t
+Plot is produced using plot.
+Matrix with 2 columns containing the frequencies and spectral density is returned invisibly.
 }
 
 \author{ A.I. McLeod }

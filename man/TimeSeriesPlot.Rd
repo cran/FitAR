@@ -13,7 +13,8 @@ As a comprise we have chosen a default of 0.25 but the user can select
 other choices.
 }
 \usage{
-TimeSeriesPlot(z, SubLength = Inf, aspect = 0.25, type="l", ylab=NULL, main=NULL, ...)
+TimeSeriesPlot(z, SubLength = Inf, aspect = 0.25, type="l", xlab = "Observation Number",
+   ylab=NULL, main=NULL, ...)
 }
 \arguments{
   \item{z}{ ts object or vector, time series data }
@@ -21,6 +22,7 @@ TimeSeriesPlot(z, SubLength = Inf, aspect = 0.25, type="l", ylab=NULL, main=NULL
   trellis graphics, set SubLength to a finite value. }
   \item{aspect}{ optional setting for the aspect-ratio }
   \item{type}{ plot type, default type="l" join points with lines}
+  \item{xlab}{label for horizontal axis }
   \item{ylab}{optional label for vertical axis }
   \item{main}{ optional title}
   \item{...}{ optional arguments passed to \code{xyplot} }

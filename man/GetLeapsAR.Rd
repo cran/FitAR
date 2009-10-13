@@ -14,11 +14,11 @@ GetLeapsAR(z, lag.max = 15, Criterion = "UBIC", Best = 3, Candidates=5)
 }
 
 \arguments{
-  \item{z}{ ts object or vector containing time series }
-  \item{lag.max}{ maximum order of the AR }
-  \item{Criterion}{ default UBIC, other choices are "AIC" or "BIC" }
-  \item{Best}{ the number of based selected based on highest AIC/BIC }
-  \item{Candidates}{ number of models initially selected using the approximate criterion }
+  \item{z}{ts object or vector containing time series }
+  \item{lag.max}{maximum order of the AR }
+  \item{Criterion}{default UBIC, other choices are "AIC" or "BIC" }
+  \item{Best}{the number of based selected based on highest AIC/BIC }
+  \item{Candidates}{number of models initially selected using the approximate criterion }
 }
 
 \details{
@@ -35,11 +35,11 @@ developed by Chen and Chen (2007).
 
 \value{
 a list with components
-  \item{NumParameters} {Number of parameters in model}
-  \item{UBIC} {approximate UBIC (Chen & Chen, 2007), if Criterion=="UBIC"}
-  \item{AIC} {approximate AIC (McLeod and Zhang, 2006a, eqn. 15), if Criterion=="AIC"}
-  \item{BIC} {approximate BIC (McLeod and Zhang, 2006a, eqn. 15), if Criterion=="BIC"}
-  \item{p} {lags present}
+  \item{NumParameters}{Number of parameters in model}
+  \item{UBIC}{approximate UBIC (Chen & Chen, 2007), if Criterion=="UBIC"}
+  \item{AIC}{approximate AIC (McLeod and Zhang, 2006a, eqn. 15), if Criterion=="AIC"}
+  \item{BIC}{approximate BIC (McLeod and Zhang, 2006a, eqn. 15), if Criterion=="BIC"}
+  \item{p}{lags present}
 }
 
 \references{ 
@@ -47,12 +47,9 @@ Tong, H. (1977)
 Some comments on the Canadian lynx data.
 Journal of the Royal Statistical Society A 140, 432-436.
 
-
 Chen, J. and Chen, Z. (2007).
 Extended Bayesian Information Criteria for Model Selection with Large Model Space.
 Preprint.
-
- 
 }
 
 \author{ A.I. McLeod }

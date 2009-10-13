@@ -5,7 +5,7 @@
 Constructs a plot of the AR spectral density function.
 }
 \usage{
-PlotARSdf(phi = NULL, theta = NULL, units = "radial", logSdf = FALSE, InnovationVariance = 1, main = NULL, sub = NULL, ...)
+PlotARSdf(phi = NULL, theta = NULL, units = "radial", logSdf = FALSE, InnovationVariance = 1, main = NULL, sub = NULL, lwd=3, col="blue", ...)
 }
 \arguments{
   \item{phi}{ AR Coefficients}
@@ -15,14 +15,18 @@ PlotARSdf(phi = NULL, theta = NULL, units = "radial", logSdf = FALSE, Innovation
   \item{InnovationVariance}{ innovation variance, default is 1 }
   \item{main}{ optional plot title }
   \item{sub}{ optional subtitle }
+  \item{lwd}{ optional lwd for plot, default lwd=3. }
+  \item{col}{ optional col for plot. Default "blue". }
   \item{...}{ optional arguments }
 }
 \details{
 The spectral density function is symmetric and defined in
-(-pi, pi) but plotted over (0, pi).  If units are not "radial", it is plotted over (0, 0.5).
+(-pi, pi) but plotted over (0, pi).  
+If units are not "radial", it is plotted over (0, 0.5).
 }
 \value{
-No value. Plot is generated as product by using R plot.
+Plot is produced using plot.
+Matrix with 2 columns containing the frequencies and spectral density is returned invisibly.
 }
 
 \seealso{ \code{\link{ARSdf}} }

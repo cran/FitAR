@@ -9,6 +9,7 @@ if (PMAX == 0){
     yX<-matrix(z,ncol=1)
     Iq<-TRUE
     LL<-LoglikelihoodAR(0,z, MeanValue=constantTerm)
+    covHat<-numeric(0)
     }
 else {
     Xy <- embed(z, PMAX+1)
@@ -18,19 +19,19 @@ else {
     else    
         X <- (Xy[,-1])[,pvec]
     yX<-cbind(y,X)
-    ans<-lsfit(X,y)
-    res<-ans$residuals
-    estimates<-lsfit(X,y)$coefficients
-    betaHat<-as.vector(estimates[-1])
-    constantTerm<-as.vector(estimates[1])
+    ans <- lm(y~X)
+    res <- resid(ans)
+    betaHat <- as.vector(coef(ans)[-1])
+    constantTerm <- as.vector(coef(ans)[1])
     phiHat<-numeric(PMAX)
     phiHat[pvec]<-betaHat
+    covHat <- vcov(ans)
+    }
     Iq<-InvertibleQ(phiHat)
     if (Iq)
         LL<-LoglikelihoodAR(phiHat,z, MeanValue=mean(z))
     else
         LL<- -1e30
-    }
-list(loglikelihood=LL, phiHat=phiHat, constantTerm=constantTerm,res=res,pvec=pvec,
-     InvertibleQ=Iq,  yX=yX)
+list(loglikelihood=LL, phiHat=phiHat, constantTerm=constantTerm, res=res, pvec=pvec,
+     InvertibleQ=Iq,  yX=yX, covHat=covHat)
 }

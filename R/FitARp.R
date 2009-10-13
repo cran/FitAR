@@ -1,5 +1,5 @@
 `FitARp` <-
-function(z,p,lag.max="default", MLEQ=FALSE)
+function(z,p,lag.max="default",MLEQ=FALSE)
 {
 stopifnot(length(z)>0, length(z)>length(p), length(p)>0)
 n<-length(z)
@@ -34,6 +34,8 @@ res<-BackcastResidualsAR(y-mz, phiHat)
 fits<-y-res
 sigsq<-sum(res^2)/n
 racf<-(acf(res, plot=FALSE, lag.max=MaxLag)$acf)[-1]
+#covariance matrix via inverse Fisher information matrix
+#sd of racf
 if (SubsetQ){
     varNames<-paste("phi(",pvec,")",sep="")
     covHat<-solve(InformationMatrixARp(phiHat,pvec))/n
@@ -65,6 +67,12 @@ LBQ<-LjungBoxTest(res, lag.max=MaxLag, k=length(pvec))
 RacfMatrix<-matrix(c(racf,sdRacf),ncol=2)
 dimnames(RacfMatrix)<-list(1:MaxLag, c("ra", "Sd(ra)"))
 zetaHat<-ARToPacf(phiHat)
+#
+if (!MLEQ) { #for LS, report usual LS covariance matrix
+    covHat<-ans$covHat
+    covHat <- covHat[-1,-1,drop=FALSE] #remove intercept
+    dimnames(covHat)<-list(varNames,varNames)
+    }
 ans<-list(loglikelihood=ans$loglikelihood,phiHat=phiHat,sigsqHat=sigsq,muHat=mz,covHat=covHat,zetaHat=zetaHat,
           RacfMatrix=RacfMatrix,LjungBoxQ=LBQ,res=res,fits=fits,SubsetQ=SubsetQ,pvec=pvec,FitMethod=FitMethod,
           MeanMLE=MeanMLEQ, ARModel="ARp", tsp=tsp(z),
@@ -72,4 +80,3 @@ ans<-list(loglikelihood=ans$loglikelihood,phiHat=phiHat,sigsqHat=sigsq,muHat=mz,
 class(ans)<-"FitAR"
 ans
 }
-

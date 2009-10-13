@@ -15,7 +15,8 @@
   \item{\dots}{optional arguments }
 }
 \value{
-Plot produced as side-effect. No output.
+Plot is produced using plot.
+Matrix with 2 columns containing the frequencies and spectral density is returned invisibly.
 }
 \author{A.I. McLeod }
 

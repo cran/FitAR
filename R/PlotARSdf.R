@@ -1,5 +1,5 @@
 `PlotARSdf` <-
-function(phi=NULL, theta=NULL, units="radial",logSdf=FALSE,InnovationVariance=1, main=NULL, sub=NULL,...){
+function(phi=NULL, theta=NULL, units="radial",logSdf=FALSE,InnovationVariance=1, main=NULL, sub=NULL, lwd=3, col="blue",  ...){
 sdf<-InnovationVariance
 if (!is.null(phi))  
     sdf<-ARSdf(phi)*sdf
@@ -17,6 +17,6 @@ if (logSdf){
     sdf<-log(sdf)
     yl<-"Log Sdf"
     }    
-plot(f,sdf,type="l",xlab="frequency",ylab=yl, main=main, sub=sub, lwd=3, col="blue", ...)
+plot(f,sdf,type="l",xlab="frequency",ylab=yl, main=main, sub=sub, lwd=lwd, col=col, ...)
+invisible(matrix(c(f,sdf),ncol=2))
 }
-

@@ -22,11 +22,10 @@ A vector of length n, the simulated series
 }
 \references{
 McLeod, A.I. (1975), Derivation of the theoretical autocorrelation function of 
-autoregressive moving-average time series, \emph{Applied Statistics} \bold {24}, 255--256.  
-
+autoregressive moving-average time series, \emph{Applied Statistics} \bold{24}, 255--256.  
 Percival, D.B. and Walden, A.T. (1993), \emph{Spectral Analysis for Physical Applications}.
-
 }
+
 \author{ A.I. McLeod }
 \note{If the process is non-stationary, then random initial values are
 used determined by the first p innovations.}

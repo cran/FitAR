@@ -6,25 +6,30 @@ The Ljung-Box Portmanteau test for the goodness of fit
 of ARIMA models is implemented.
 }
 \usage{
-LjungBoxTest(res, k=0, lag.max=30, StartLag=10, SquaredQ=FALSE)
+LjungBoxTest(res, k=0, lag.max=30, StartLag=1, SquaredQ=FALSE)
 }
 \arguments{
   \item{res}{ residuals }
   \item{k}{ number of ARMA parameters, default k = 0 }
   \item{lag.max}{ maximum lag, default MaxLag = 30 }
-  \item{StartLag}{ test is done for lags m=StartLag:MaxLag, default StartLag = 10 }
+  \item{StartLag}{ test is done for lags m=StartLag:MaxLag, default StartLag = 1 }
   \item{SquaredQ}{ if TRUE, use squared residuals for ARCH test, default Squared = FALSE }
 }
 \details{
 This test is described in detail in Wei (2006, p.153, eqn. 7.5.1).
-}
-\value{
-A matrix with columns labelled m, Qm, pvalue, where m is the lag
-and Qm is the Ljung-Box Portmanteau statistic and pvalue its p-value.
+The df are given by h-k, where h is the lag, running from StartLag to lag.max, when
+h-k < 1, it is reset to 1. This is ok, since the test is conservative in this case.
+
 A powerful test for ARCH and other nonlinearities is obtained by using
 squared values of the series to be tested (McLeod & Li, 1983). 
 Note that if Squared=TRUE is used the data "res" is centered by sample mean correction before squaring.
 }
+
+\value{
+A matrix with columns labelled m, Qm, pvalue, where m is the lag
+and Qm is the Ljung-Box Portmanteau statistic and pvalue its p-value.
+}
+
 \references{ 
 W.W.S. Wei (2006, 2nd Ed.), \emph{Time Series Analysis: Univariate and Multivariate Methods}.
 

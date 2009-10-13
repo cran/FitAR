@@ -2,19 +2,23 @@
 \alias{SelectModel}
 \title{Select Best AR, ARz or ARp Model  }
 \description{
-The AIC/BIC/UBIC criterion is used to select the best fitting AR or subset AR model.
-The result may be plotted using \code{plot}.
+The AIC/BIC/UBIC/EBIC/QBIC criterion is used to select the best fitting AR or subset AR model.
+When Best > 1, the result may be plotted using \code{plot}.
 }
 \usage{
-SelectModel(z, lag.max = 15, ARModel = c("AR", "ARz", "ARp"), Criterion = "default", Best = 3, Candidates = 5)
+SelectModel(z, lag.max = 15, ARModel = c("AR", "ARz", "ARp"), Criterion = "default", Best = 3, Candidates = 5, G = 0.5, Q = 0.25)
 }
 \arguments{
   \item{z}{ time series data }
   \item{lag.max}{ maximum order of autoregression }
   \item{ARModel}{ "AR" for full AR(p) or "ARp"/"ARz" corresponding to subset models}
-  \item{Criterion}{ default is "UBIC". Options: "BIC" and "AIC". }
+  \item{Criterion}{ default is "BIC" for order selection and "QBIC" for subset selection. 
+  Options: "AIC", "BIC", "UBIC", "EBIC" and "QBIC". }
   \item{Best}{ final number of models to be selected }
-  \item{Candidates}{ number of models initially selected using the approximate criterion }
+  \item{Candidates}{ number of models initially selected using the approximate criterion}
+  \item{G}{ hyperparameter for EBIC }
+  \item{Q}{ byperparameter for QBIC }
+
 }
 \details{
   McLeod and Zhang (2006) outline an approximate AIC/BIC selection algorithm.

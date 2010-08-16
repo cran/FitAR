@@ -70,8 +70,8 @@ only for regression and analysis of variance. }
 }
 
 \examples{
+\dontrun{ #not run to save time!
 #Tobacco Production
- data(USTobacco)
  plot(USTobacco)
  USTobacco.arima<-arima(USTobacco,order=c(0,1,1))
  BoxCox(USTobacco.arima)
@@ -87,6 +87,7 @@ BoxCox(sqrtsun.arima, InitLambda=0.5, type="power")
 #Back transform with AirPassengers
 Garima<-arima(log(AirPassengers), c(0,1,1), seasonal=list(order=c(0,1,1),period=12))
 BoxCox(Garima, InitLambda=0)
+}
 }
 
 \keyword{ ts }

@@ -27,7 +27,6 @@ Matrix with 2 columns containing the frequencies and spectral density is returne
 \examples{
 #Use AIC to select best subset model to fit to lynx data and
 #plot spectral density function
-data(SeriesA)
 pvec<-SelectModel(SeriesA, ARModel="ARp", lag.max=10, Best=1)
 ans<-FitAR(SeriesA, pvec)
 sdfplot(ans)

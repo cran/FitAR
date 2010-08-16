@@ -108,6 +108,7 @@ ans<-FitAR(z,4,MeanMLEQ=TRUE)
 ans
 coef(ans)
 
+\dontrun{ #save time building package!
 #Second example: compare with sample mean result
 ans<-FitAR(z,4)
 coef(ans)
@@ -149,6 +150,7 @@ ans1
 p<-SelectModel(z, ARModel="AR", Criterion="AIC")[1,1]
 ans2<-FitAR(z, p)
 ans2
+}
 }
 
 \keyword{ ts }

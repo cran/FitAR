@@ -97,6 +97,7 @@ out
 plot(out)
 #
 #Example 4: Fit subset models to lynx series
+\dontrun{ #not run to save time in building package
 z<-log(lynx)
 #requires library leaps. Should be automatically when FitAR package is loaded.
 #first fit ARp
@@ -116,6 +117,6 @@ ans4<-FitAR(z, pvec, ARModel="ARz")
 #compare
 summary(ans3)
 summary(ans4)
-
+}
 }
 \keyword{ ts }

@@ -26,6 +26,7 @@ Journal of Time Series Analysis, 27, 599-612.
 \examples{
 #Simulate a time series with mean zero and compute the exact
 #mle for mean and compare with sample average.
+\dontrun{ #save time building package!
  set.seed(3323)
  phi<-c(2.7607,-3.8106,2.6535,-0.9238)
  z<-SimulateGaussianAR(phi,1000)
@@ -43,4 +44,6 @@ ans<-c(ans1,ans2,ans3)
 names(ans)<-c("mean", "GetARMeanMLE","DirectGetMeanMLE")
 ans
 }
+}
+
 \keyword{ ts }

@@ -39,7 +39,6 @@ is used. }
 }
 \examples{
 #fit subset AR and plot diagnostic check
- data(SeriesA)
  out<-FitAR(SeriesA, c(1,2,7), ARModel="ARp")
  res<-resid(out)
  LBQPlot(res)

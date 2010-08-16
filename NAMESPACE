@@ -1,0 +1,97 @@
+imports("leaps", "lattice", "ltsa")
+
+export(
+"AR1Est",
+"ARSdf",
+"ARToMA",
+"ARToPacf",
+"AcfPlot",
+"BackcastResidualsAR",
+"ChampernowneD",
+"DetAR",
+"FastLoglikelihoodAR",
+"FitAR",
+"FitARp",
+"FitARz",
+"FromSymmetricStorageUpper",
+"Get1G",
+"GetARMeanMLE",
+"GetB",
+"GetFitAR",
+"GetFitARpLS",
+"GetFitARpMLE",
+"GetFitARz",
+"GetKappa",
+"GetLeapsAR",
+"InformationMatrixAR",
+"InformationMatrixARp",
+"InformationMatrixARz",
+"InvertibleQ",
+"Jacobian",
+"JacobianK",
+"JarqueBeraTest",
+"LBQPlot",
+"LjungBoxTest",
+"LoglikelihoodAR",
+"PacfDL",
+"PacfPlot",
+"PacfToAR",
+"PlotARSdf",
+"RacfPlot",
+"Readts",
+"SelectModel",
+"SiddiquiMatrix",
+"SimulateGaussianAR",
+"TacvfAR",
+"TacvfMA",
+"TimeSeriesPlot",
+"UnitRootTest",
+"VarianceRacfAR",
+"VarianceRacfARp",
+"VarianceRacfARz",
+"bxcx",
+"cts",
+"getRho",
+"getT",
+"glog",
+"plot.Selectmodel",
+#
+#generic functions
+"Boot",
+"BoxCox",
+"sdfplot",
+#newly defined methods
+"Boot.FitAR",
+"Boot.ts",
+"BoxCox.Arima",
+"BoxCox.FitAR",
+"BoxCox.numeric",
+"BoxCox.ts",
+"sdfplot.Arima",
+"sdfplot.FitAR",
+"sdfplot.ar",
+"sdfplot.numeric",
+"sdfplot.ts"
+)
+
+#methods
+	S3method("Boot",	"FitAR")
+	S3method("Boot",	"ts")
+	S3method("BoxCox",	"Arima")
+	S3method("BoxCox",	"FitAR")
+	S3method("BoxCox",	"numeric")
+	S3method("BoxCox",	"ts")
+	S3method("sdfplot",	"Arima")
+	S3method("sdfplot",	"FitAR")
+	S3method("sdfplot",	"ar")
+	S3method("sdfplot",	"numeric")
+	S3method("sdfplot",	"ts")
+	S3method("coef",	"FitAR")
+	S3method("fitted",	"FitAR")
+	S3method("plot",	"FitAR")
+	S3method("predict",	"FitAR")
+	S3method("print",	"FitAR")
+	S3method("residuals",	"FitAR")
+	S3method("summary",	"FitAR")
+
+

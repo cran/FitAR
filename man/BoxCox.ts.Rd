@@ -50,8 +50,9 @@ to do.
 
 \examples{
 #
+\dontrun{#takes a few seconds
 BoxCox(sunspot.year)
-
+}
 }
 \keyword{ ts }
 

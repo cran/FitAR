@@ -23,7 +23,6 @@ Journal of Time Series Analysis, 27, 599-612.
 
 
 \examples{
-data(Ninemile)
 ans<-FitAR(Ninemile, c(1,2,9))
 summary(ans)
 

@@ -41,7 +41,6 @@ only O(1) flops vs O(n) flops, where n = length(z).
 \seealso{ \code{\link{FastLoglikelihoodAR}} }
 \examples{
 #Fit a subset model to Series A and verify the loglikelihood
- data(SeriesA)
  out<-FitAR(SeriesA, c(1,2,7))
  out
 #either using print.default(out) to see the components in out

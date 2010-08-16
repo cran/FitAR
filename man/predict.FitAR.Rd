@@ -37,6 +37,7 @@ Journal of Statistical Software, 23/5, 1-26.
 }
 
 \examples{
+\dontrun{#these examples take about a minute
 #Example 1.  
 #Compare the predictions for the monthly sunspots using the ARz
 #  fitted using the UBIC and BIC.
@@ -92,6 +93,7 @@ lines.ts(y1,col="blue",type="o", lwd=2, pch=16)
 y2<-window(y, start=c(1983,1))
 lines.ts(y2,col="red",type="o",lwd=2, pch=16)
 legend(1984,12, legend=c("observed", "forecast"),col=c("red","blue"),lwd=c(2,2),pch=c(16,16))
+}
 }
 
 \keyword{ ts }

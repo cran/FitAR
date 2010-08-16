@@ -28,7 +28,6 @@ Matrix with 2 columns containing the frequencies and spectral density is returne
  }
 
 \examples{
-data(SeriesA)
 sdfplot(SeriesA,c(1,0,1))
 }
 

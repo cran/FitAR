@@ -20,7 +20,6 @@ Vector of fitted values
 \code{\link{FitAR}}
 }
 \examples{
-data(SeriesA)
 out<-FitAR(SeriesA, c(1,2,6,7))
 fitted(out)
 }

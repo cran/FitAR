@@ -31,7 +31,6 @@ Nonparametric bootstrap for time series is available
 in the function \code{tsboot} in the library \code{boot}.
  }
 \examples{
-data(SeriesA)
 layout(matrix(c(1,2,1,2),ncol=2))
 TimeSeriesPlot(SeriesA)
 TimeSeriesPlot(Boot(SeriesA),main="Bootstrap of Series A")

@@ -100,6 +100,7 @@ ans2<-FitARp(z,4,MLEQ=FALSE)
 ans2
 coef(ans2)
 
+\dontrun{#save time building package
 #Second Example: Fit subset ARp model
 z<-log(lynx)
 #MLE
@@ -116,6 +117,7 @@ p<-SelectModel(z,ARModel="ARp")[[1]]$p
 #LS
 ans2<-FitARp(z, p, MLEQ=FALSE)
 ans2
+}
 }
 
 \keyword{ ts }

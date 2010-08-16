@@ -11,7 +11,7 @@ as bootstrapping since it is faster than FitAR.
 \usage{
 GetFitAR(z, p, ARModel = "ARz", ...)
 }
-%- maybe also 'usage' for other objects documented here.
+
 \arguments{
   \item{z}{ time series }
   \item{p}{ model order or subset lags }

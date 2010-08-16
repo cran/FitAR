@@ -32,11 +32,13 @@ only for regression and analysis of variance. }
  }
 
 \examples{
+\dontrun{#takes a few seconds
 BoxCox(lynx)
 out<-FitAR(lynx, c(1,2,4,10,11), ARModel="ARp", MLEQ=FALSE)
 BoxCox(out)
 out<-FitAR(lynx, c(1,2,4,5,7,8,10,11,12))
 BoxCox(out)
+}
 }
 
 \keyword{ ts }

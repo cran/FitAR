@@ -42,8 +42,10 @@ Unit Root Bootstrap Tests with Exact Maximum Likelihood.
 }
 
 \examples{
+\dontrun{#takes about 10 seconds
 z<-cumsum(rnorm(100))
 UnitRootTest(z)
+}
 }
 
 \keyword{ ts }

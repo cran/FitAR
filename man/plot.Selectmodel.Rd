@@ -25,8 +25,10 @@ No value. Plot produced as side-effect.
 
 \seealso{ \code{\link{SelectModel}} }
 \examples{
-data(Willamette)
+#takes about 10 seconds
+\dontrun{
 out<-SelectModel(log(Willamette),lag.max=150,ARModel="AR",Best=5,Criterion="AIC")
 plot(out)
+}
 }
 \keyword{ ts }

@@ -70,7 +70,6 @@ bootstrapping since it is faster.
 
 \examples{
 #Fit subset AR using LS
-data(SeriesA)
 #normally use FitAR
 ans<-FitAR(SeriesA, c(1,2,7), ARModel="ARp", MLEQ=FALSE)
 #could also use FitARp

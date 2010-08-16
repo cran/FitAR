@@ -1,0 +1,14 @@
+New in Version 1.80
+*use NAMESPACE
+*LazyData=yes
+*time for R CMD check reduced to about 10 seconds by using \dontrun in well-tested examples
+*jss paper and scripts add
+*ACF and MSC classification codes
+
+New in Version 1.78
+--------------------
+*glog transformation. See glog.pdf in inst\doc directory.
+*UnitRootTest
+*EBIC added with G parameter. (UBIC is EBIC with G=1)
+*QBIC for model selection
+*Script for spectral density estimation of the monthly sunspots in inst\doc

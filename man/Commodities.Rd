@@ -39,6 +39,8 @@ I obtained these data from a broker.
 }
 
 \examples{
-data(Commodities)
+dim(Commodities$gold)
+dimnames(Commodities$gold)[[2]]
+TimeSeriesPlot(Commodities$gold$close)
 }
 \keyword{datasets}

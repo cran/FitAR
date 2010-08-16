@@ -64,6 +64,7 @@ only for regression and analysis of variance. }
  }
 
 \examples{
+\dontrun{ #takes a few seconds
 #lynx time series. ARp subset model.
 out<-FitAR(lynx, c(1,2,4,10,11), ARModel="ARp")
 BoxCox(out)
@@ -72,7 +73,7 @@ BoxCox(out)
 p<-SelectModel(lynx, ARModel="ARz", lag.max=25, Best=1)
 out<-FitAR(lynx, p)
 BoxCox(out)
-
+}
 
 }
 

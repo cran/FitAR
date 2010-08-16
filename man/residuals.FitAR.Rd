@@ -20,7 +20,6 @@ Vector of residuals
 \code{\link{FitAR}},
 }
 \examples{
-data(SeriesA)
 out<-FitAR(SeriesA, c(1,2,6,7))
 resid(out)
 }

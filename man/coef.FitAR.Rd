@@ -27,7 +27,6 @@ Journal of Time Series Analysis, 27, 599-612.
 
 \examples{
 # Fit subset AR to SeriesA
- data(SeriesA) 
  outA<-FitAR(SeriesA, c(1,2,7), ARModel="ARz")
  coef(outA)
 #

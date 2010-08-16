@@ -91,6 +91,7 @@ ans<-FitARz(z,4,MeanMLEQ=TRUE)
 ans
 coef(ans)
 
+\dontrun{#save time building package
 #Second Example: compare with sample mean result
 ans<-FitARz(z,4)
 coef(ans)
@@ -108,6 +109,7 @@ z<-SimulateGaussianAR(someAR,1000)
 ans=FitARz(z, c(1,5),MeanMLEQ=TRUE)
 coef(ans)
 GetFitARz(z,c(1,5))#assuming a known zero mean
+}
 }
 
 \keyword{ ts }

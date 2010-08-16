@@ -40,7 +40,6 @@ Journal of Time Series Analysis, 27, 599-612.
 \examples{
 #Compute the loglikelihood using the direct method as implemented
 # in LoglikelihoodAR and using the fast method
-data(SeriesA)
 phi<-PacfToAR(rep(0.5,10))
 p<-length(phi)
 z<-SeriesA-mean(SeriesA)

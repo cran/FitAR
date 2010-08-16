@@ -37,7 +37,6 @@ page back and forth between them.}
  }
 
 \examples{
-data(SeriesA)
 obj<-FitAR(SeriesA, c(1,2,6,7))
 plot(obj)
 }

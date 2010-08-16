@@ -26,7 +26,6 @@ When R>1, a matrix with R columns is produced with each column a separate bootst
 \examples{
 #Plot log(lynx) time series and simulation
 #
-data(lynx)
 ans <- FitAR(log(lynx), 8)
 z<-Boot.FitAR(ans)
 par(mfrow=c(2,1))
@@ -38,6 +37,8 @@ title(main="Simulated AR(8), fitted to log lynx")
 #
 #Use bootstrap to compute standard errors of parameters
 #takes about 18 seconds on a 3.6 GHz PC
+
+\dontrun{
 ptm <- proc.time() #user time
 R<-100  #number of bootstrap iterations
 p<-c(1,2,4,7,10,11)
@@ -50,5 +51,6 @@ sd<-matrix(c(sdBoot,sdLargeSample),ncol=2)
 dimnames(sd)<-list(names(sdLargeSample),c("Bootstrap","LargeSample"))
 ptm<-(proc.time()-ptm)[1]
 sd
+}
 }
 \keyword{ts}

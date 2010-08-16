@@ -46,12 +46,12 @@ only for regression and analysis of variance. }
  }
 
 \examples{
-#
+\dontrun{#takes a few seconds
 #annual sunspot series
 BoxCox(sunspot.year, IIDQ=FALSE)
 #
 #non-time series example, lengths of rivers
 BoxCox(rivers)
-
+}
 }
 \keyword{ ts }

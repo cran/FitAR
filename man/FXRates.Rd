@@ -33,7 +33,6 @@ Missing values were replaced with the previous value.
 
 
 \examples{
-data(FXRates)
 head(FXRates)
 }
 

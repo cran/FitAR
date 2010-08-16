@@ -64,7 +64,6 @@ process.
  c(acf(z, plot=FALSE, lag.max=lag.max)$acf)*(length(z)-1)/length(z)
  }
 #now compute PACF and also fit AR(7) to SeriesA
- data(SeriesA)
  ck<-sacvf(SeriesA, 7)
  PacfDL(ck)
  PacfDL(ck, LinearPredictor = TRUE)

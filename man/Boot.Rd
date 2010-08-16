@@ -24,7 +24,6 @@ Parametric bootstrap simulation
 
 \seealso{ \code{\link{Boot.FitAR}} }
 \examples{
-data(SeriesA)
 out<-FitAR(SeriesA, c(1,2,7), ARModel="ARp")
 Boot(out)
 

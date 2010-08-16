@@ -23,10 +23,11 @@ Methods for print, summary, coef, residuals, fitted and predict implemented.
 \tabular{ll}{
 Package: \tab FitAR\cr
 Type: \tab Package\cr
-Version: \tab 1.79\cr
-Date: \tab 2009-10-13\cr
+Version: \tab 1.80\cr
+Date: \tab 2010-08-16\cr
 License: \tab GPL (>= 2)\cr
 LazyLoad: \tab yes\cr
+LazyData: \tab yes\cr
 }
 
 To get started please see the documentation and examples given in the
@@ -118,6 +119,7 @@ print(TimeSeriesPlot(Ninemile, SubLength=200))
 graphics.off() #clear previous graphics
 PacfPlot(log(lynx))
 
+\dontrun{#takes some time for all these examples
 #Figure 5. Using SelectModel to select the best subset ARz or ARp and
 #          comparing BIC and UBIC subset selection.
 #
@@ -226,7 +228,6 @@ total.time<-(end.time-start.time)[1]
 #Second part of table: AR(20) and AR(40).
 #NOTE: ar is not recommended with method="mle" produces numerous warnings
 #      and also takes a long time!
-\dontrun{
         start.time<-proc.time()
         set.seed(661177723)
         NREP<-100 #takes 7.5 hours
@@ -268,7 +269,6 @@ total.time<-(end.time-start.time)[1]
         tmsB[,-1] <- round(tmsB[,-1]/NREP,2)
         end.time<-proc.time()
         total.time<-(end.time-start.time)[1]
-}
 
 #Figure 7. Comparing Box-Cox analyses using FitAR and MASS
 library(MASS)
@@ -332,6 +332,7 @@ dimnames(sd)<-list(names(sdLargeSample),c("Bootstrap","LargeSample"))
 ptm<-(proc.time()-ptm)[1]
 sd
 
+}
 
 
 }

@@ -18,6 +18,9 @@ is determined.	Requires package FitAR.
 }
 
 \details{
+For \eqn{\lambda \ne 0}{lambda!=0}, the Box-Cox transformation is of x is
+\eqn{(x^\lambda - 1)/\lambda}{(x^lambda-1)/lambda}.
+
 If the minimum data value is <= 0, a small positive constant, equal to
 the negative of the minimum plus 0.25, is added to all the
 data values.

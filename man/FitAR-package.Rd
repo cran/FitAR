@@ -12,6 +12,8 @@ print, summary, coef, plot and predict are implemented.
 For model identification, there is a new PacfPlot for subset ARz idenfication.
 Subset models may also be selected using AIC, BIC and UBIC criteria
 with the function SelectModel.
+SelectModel produces a S3 class object, "SelectModel",
+for which their is a plot method.
 The main fitting function is FitAR.
 New methods and generic functions, BoxCox, Boot and sdfplot are given.
 Methods for print, summary, coef, residuals, fitted and predict implemented.
@@ -23,8 +25,8 @@ Methods for print, summary, coef, residuals, fitted and predict implemented.
 \tabular{ll}{
 Package: \tab FitAR\cr
 Type: \tab Package\cr
-Version: \tab 1.80\cr
-Date: \tab 2010-08-16\cr
+Version: \tab 1.85\cr
+Date: \tab 2010-08-27\cr
 License: \tab GPL (>= 2)\cr
 LazyLoad: \tab yes\cr
 LazyData: \tab yes\cr

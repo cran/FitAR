@@ -4,7 +4,8 @@
 \description{
 Box-Cox or power transformation or its inverse.
 For \eqn{lambda \ne 0}{lambda!=0}, the Box-Cox transformation of x is
-\eqn{(x-1)^\lambda/\lambda}{(x-1)^lambda/lambda} whereas the regular power transformation 
+\eqn{(x^\lambda - 1)/\lambda}{(x^lambda-1)/lambda},
+whereas the regular power transformation 
 is simply \eqn{x^\lambda}{x^lambda}.  
 When \eqn{\lambda=0}{lambda=0}, it is log in both cases.
 The inverse of the Box-Cox and the power transform can

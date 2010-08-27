@@ -86,6 +86,13 @@ Journal of Statistical Software.
 
 \note{ 
 There are generic print, summary, coef and resid functions for class "FitAR".
+
+It is somewhat surprising that in the 'ARp' subset autoregression
+quite different subsets may be chosen depending on the choice of 'lag.max'.
+For example, with the 'lynx' taking lag.max = 15, 20
+produces subsets {1, 2, 4, 10, 11} and {1, 2, 10, 11} using the BIC.
+This also occurs even with the AIC.
+See sixth example below.
 }
 
 
@@ -151,6 +158,20 @@ p<-SelectModel(z, ARModel="AR", Criterion="AIC")[1,1]
 ans2<-FitAR(z, p)
 ans2
 }
+
+#Sixth Example: Subset autoregression depends on lag.max!
+#Because least-squares is used, P=lag.max observations are
+#  are deleted. This causes different results depending on lag.max.
+#This phenomenon does not happen with "ARz" subset models
+#ARp models depend on lag.max
+SelectModel(z,lag.max=15,ARModel="ARp", Criterion="BIC", Best=1)
+SelectModel(z,lag.max=20,ARModel="ARp", Criterion="BIC", Best=1)
+#ARz models do NOT depend in this way on lag.max.
+#Obviously if some lags beyond the initial value of lag.max are
+# found to be important, then there is a dependence but this
+# is not a problem!
+SelectModel(z,lag.max=15,ARModel="ARz", Criterion="BIC", Best=1)
+SelectModel(z,lag.max=20,ARModel="ARz", Criterion="BIC", Best=1)
 }
 
 \keyword{ ts }

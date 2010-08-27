@@ -2,7 +2,16 @@
 \alias{BoxCox}
 \title{ Generic Box-Cox Analysis Function }
 \description{
-The function is implemented as a generic function with methods for classes "FitAR", "Arima", "ts" and "numeric".
+The function is implemented as a generic function with methods for 
+classes "FitAR", "Arima", "ts" and "numeric".
+
+
+For \eqn{\lambda \ne 0}{lambda!=0}, the Box-Cox transformation is of x is
+\eqn{(x^\lambda - 1)/\lambda}{(x^lambda-1)/lambda}.
+If the minimum data value is <= 0, a small positive constant, equal to
+the negative of the minimum plus 0.25, is added to all the
+data values.
+
 }
 
 \usage{

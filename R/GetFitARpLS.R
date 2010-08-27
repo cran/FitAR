@@ -1,8 +1,8 @@
 `GetFitARpLS` <-
 function(z, pvec){
-stopifnot(length(z)>0, length(z)>max(pvec), length(pvec)>0)
+stopifnot(length(z)>0, length(z)>max(pvec))
 PMAX<-max(pvec)
-if (PMAX == 0){
+if (PMAX == 0  || length(pvec)==0){
     phiHat<-numeric(0)
     constantTerm<-mean(z)
     res<-z-constantTerm

@@ -23,10 +23,11 @@ If no transformation is used on the data, then the original data is used.
 But if a transformation has already been used, we need to inverse transform
 the data to recover the untransformed data.
 
-For \eqn{\lambda \ne 0}{lambda!=0}, the Box-Cox transformation of x is
-\eqn{(x-1)^\lambda/\lambda}{(x-1)^lambda/lambda} whereas the regular power transformation 
-is simply \eqn{x^\lambda}{x^lambda}.  
-When \eqn{\lambda=0}{lambda=0}, it is log in both cases.
+For \eqn{\lambda \ne 0}{lambda!=0}, the Box-Cox transformation is of x is
+\eqn{(x^\lambda - 1)/\lambda}{(x^lambda-1)/lambda}.
+If the minimum data value is <= 0, a small positive constant, equal to
+the negative of the minimum plus 0.25, is added to all the
+data values.
 
 The log of the Jacobian is 
 \eqn{(\lambda-1)\sum_{t=D+1}^n \log(z_t)}{%

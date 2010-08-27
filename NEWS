@@ -1,0 +1,9 @@
+CHANGES IN 'FitAR' VERSION 1.85 (2010-08-27)
+    o    BICqLL() finds optimal model using GIC	
+    o    GetLeapsAR() added GIC, BICq, EBIC
+    o    minor adjustment to GetFitARpMLME()
+    o    adjustments to GetFitARpLS()
+    o    definition of Box-Cox in Rd files corrected (thanks LHC).
+
+
+

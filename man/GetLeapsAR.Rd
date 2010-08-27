@@ -10,15 +10,20 @@ ARp models.
 }
 
 \usage{
-GetLeapsAR(z, lag.max = 15, Criterion = "UBIC", Best = 3, Candidates=5)
+GetLeapsAR(z, lag.max = 15, Criterion = "UBIC", Best = 3, Candidates=5, G=0.5, Q=0.25, level=0.99, ExactQ=FALSE)
 }
 
 \arguments{
   \item{z}{ts object or vector containing time series }
   \item{lag.max}{maximum order of the AR }
-  \item{Criterion}{default UBIC, other choices are "AIC" or "BIC" }
-  \item{Best}{the number of based selected based on highest AIC/BIC }
+  \item{Criterion}{default UBIC, other choices are "AIC", "BIC", "EBIC", "QBIC", "GIC" }
+  \item{Best}{the number of based selected. Ignore with "GIC". }
   \item{Candidates}{number of models initially selected using the approximate criterion }
+  \item{G}{optional parameter for EBIC }
+  \item{Q}{optional parameter for BICq }
+  \item{level}{optional parameter for GIC }
+  \item{ExactQ}{exhaustive numeration using exact likelihood. Still under
+    under development. NOT AVAILABLE IN THIS VERSION }
 }
 
 \details{
@@ -34,12 +39,15 @@ developed by Chen and Chen (2007).
 }
 
 \value{
-a list with components
-  \item{NumParameters}{Number of parameters in model}
+When 'Criterion' is one of UBIC, AIC, BIC, EBIC, BICq, a list with components:
+  \item{p}{lags present in model}
   \item{UBIC}{approximate UBIC (Chen & Chen, 2007), if Criterion=="UBIC"}
   \item{AIC}{approximate AIC (McLeod and Zhang, 2006a, eqn. 15), if Criterion=="AIC"}
   \item{BIC}{approximate BIC (McLeod and Zhang, 2006a, eqn. 15), if Criterion=="BIC"}
-  \item{p}{lags present}
+  \item{EBIC}{approximate EBIC (McLeod and Zhang, 2006a, eqn. 15), if Criterion=="EBIC"}
+  \item{BICq}{approximate BICq (McLeod and Zhang, 2006a, eqn. 15), if Criterion=="BICq"}
+
+When 'Criterion' is GIC, 
 }
 
 \references{ 
@@ -47,14 +55,21 @@ Tong, H. (1977)
 Some comments on the Canadian lynx data.
 Journal of the Royal Statistical Society A 140, 432-436.
 
-Chen, J. and Chen, Z. (2007).
+Chen, J. and Chen, Z. (2008).
 Extended Bayesian Information Criteria for Model Selection with Large Model Space.
-Preprint.
+Biometrika.
+
+Changjiang Xu and A. I. McLeod (2010).
+Bayesian information criterion with Bernoulli prior.
+Submitted for publication.
 }
 
 \author{ A.I. McLeod }
 
-\note{Requires leaps package}
+\note{Requires leaps package. 
+Since the least-squares is used, the number of observations
+depends on 'lag.max'. Hence different subsets may be chosen
+depending on the 'lag.max. See example below.}
 
 \section{Warning }{
 AIC and BIC values produced are not comparable to AIC and BIC produced
@@ -70,6 +85,7 @@ are fit by FitAR.
 }
 
 \examples{
+#Example 1: Simple Example
 #for the log(lynx) Tong (1977) selected an ARp(1,2,4,10,11)
 #using the AIC and a subset selection algorithm. Our more exact
 #approach shows that the ARp(1,2,3,4,10,11) has slightly lower
@@ -77,6 +93,23 @@ are fit by FitAR.
 z<-log(lynx)
 GetLeapsAR(z, lag.max=11)
 GetLeapsAR(z, lag.max=11, Criterion="BIC")
+
+#Example 2: Subset autoregression depends on lag.max!
+#Because least-squares is used, P=lag.max observations are
+#  are deleted. This causes different results depending on lag.max.
+#This phenomenon does not happen with "ARz" subset models
+#ARp models depend on lag.max
+GetLeapsAR(z, lag.max=15, Criterion="BIC")
+GetLeapsAR(z, lag.max=20, Criterion="BIC")
+
+#Example 3: Comparing GIC with BIC, AIC, UBIC and QBIC
+z <- log(lynx)
+GetLeapsAR(z, lag.max=15, Criterion="GIC", Best=1, level=0.99)
+GetLeapsAR(z, lag.max=15, Criterion="BIC", Best=1)
+GetLeapsAR(z, lag.max=15, Criterion="AIC", Best=1)
+GetLeapsAR(z, lag.max=15, Criterion="UBIC", Best=1)
+GetLeapsAR(z, lag.max=15, Criterion="QBIC", Best=1, Q=0.25)
+
 }
 
 \keyword{ ts }

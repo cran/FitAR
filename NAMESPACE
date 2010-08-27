@@ -1,4 +1,6 @@
 imports("leaps", "lattice", "ltsa")
+imports("bestglm")
+#importFrom("bestglm", "to.binary")
 
 export(
 "AR1Est",
@@ -7,6 +9,7 @@ export(
 "ARToPacf",
 "AcfPlot",
 "BackcastResidualsAR",
+"BICqLL",
 "ChampernowneD",
 "DetAR",
 "FastLoglikelihoodAR",
@@ -36,6 +39,7 @@ export(
 "PacfDL",
 "PacfPlot",
 "PacfToAR",
+"plot.Selectmodel",
 "PlotARSdf",
 "RacfPlot",
 "Readts",
@@ -89,6 +93,7 @@ export(
 	S3method("coef",	"FitAR")
 	S3method("fitted",	"FitAR")
 	S3method("plot",	"FitAR")
+	S3method("plot",	"Selectmodel")
 	S3method("predict",	"FitAR")
 	S3method("print",	"FitAR")
 	S3method("residuals",	"FitAR")

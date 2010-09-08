@@ -4,6 +4,8 @@ CHANGES IN 'FitAR' VERSION 1.85 (2010-08-27)
     o    minor adjustment to GetFitARpMLME()
     o    adjustments to GetFitARpLS()
     o    definition of Box-Cox in Rd files corrected (thanks LHC).
+CHANGES IN 'FitAR' VERSION 1.86 (2010-09-08)
+    o    added Caffeine time series
 
 
 

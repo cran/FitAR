@@ -2,7 +2,7 @@
 \alias{SelectModel}
 \title{Select Best AR, ARz or ARp Model  }
 \description{
-The AIC/BIC/UBIC/EBIC/QBIC criterion is used to select the best fitting AR or subset AR model.
+The AIC/BIC/UBIC/EBIC/BICq criterion is used to select the best fitting AR or subset AR model.
 When Best > 1, the result may be plotted using \code{plot}.
 }
 \usage{
@@ -12,12 +12,12 @@ SelectModel(z, lag.max = 15, ARModel = c("AR", "ARz", "ARp"), Criterion = "defau
   \item{z}{ time series data }
   \item{lag.max}{ maximum order of autoregression }
   \item{ARModel}{ "AR" for full AR(p) or "ARp"/"ARz" corresponding to subset models}
-  \item{Criterion}{ default is "BIC" for order selection and "QBIC" for subset selection. 
-  Options: "AIC", "BIC", "UBIC", "EBIC" and "QBIC". }
+  \item{Criterion}{ default is "BIC" for order selection and "BICq" for subset selection. 
+  Options: "AIC", "BIC", "UBIC", "EBIC" and "BICq". }
   \item{Best}{ final number of models to be selected }
   \item{Candidates}{ number of models initially selected using the approximate criterion}
   \item{G}{ hyperparameter for EBIC }
-  \item{Q}{ byperparameter for QBIC }
+  \item{Q}{ byperparameter for BICq }
 
 }
 \details{
@@ -95,6 +95,7 @@ plot(out)
 out<-SelectModel(z, ARModel="AR", Criterion="BIC", Best=5)
 out
 plot(out)
+out<-SelectModel(z, ARModel="AR", Criterion="BIC", Best=1)
 #
 #Example 4: Fit subset models to lynx series
 \dontrun{ #not run to save time in building package

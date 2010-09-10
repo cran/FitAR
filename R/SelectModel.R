@@ -1,8 +1,11 @@
-`SelectModel` <-
+SelectModel <-
 function(z, lag.max=15, ARModel=c("AR","ARz","ARp"), Criterion="default", Best=3, Candidates=5, G=0.5, Q=0.25){
 stopifnot(length(z)>0, length(z)>lag.max, lag.max>1, Best>0, Candidates>0)
+is.wholenumber <-
+    function(x, tol = .Machine$double.eps^0.5)  abs(x - round(x)) < tol
+stopifnot(is.wholenumber(lag.max))
 BestCandidates<-Candidates
-IsValidCriterionQ <- Criterion %in% c("default", "AIC", "BIC", "UBIC", "EBIC", "QBIC")
+IsValidCriterionQ <- Criterion %in% c("default", "AIC", "BIC", "UBIC", "EBIC", "BICq")
 if (!IsValidCriterionQ)
     stop("Criterion = ", Criterion, " not known.")
 ARModel <- match.arg(ARModel)
@@ -17,7 +20,7 @@ else
 method<-Criterion
 if (Criterion == "default")
     if (SubsetQ)
-        method <- "QBIC"
+        method <- "BICq"
     else
         method <- "BIC"
 if (!SubsetQ && Criterion=="UBIC")
@@ -29,7 +32,7 @@ if (method=="UBIC")
     penalty<-log(n)*(1+LagRange)+2*lchoose(lag.max, LagRange)
 if (method=="EBIC")
     penalty<-log(n)*(1+LagRange)+2*G*lchoose(lag.max, LagRange)
-if (method=="QBIC")
+if (method=="BICq")
     penalty<-log(n)*(1+LagRange)-2*(LagRange*log(Q)+(lag.max+1-LagRange)*log(1-Q)) 
 if (method=="BIC")
     penalty<-log(n)*(1+LagRange)
@@ -59,10 +62,10 @@ if (SubsetQ){ #subset. AR model subset selection.
             AnICexact[isub]<-EBIC
             m[[isub]] <- list(p=ModelLags, EBIC=EBIC)
             }
-        if (method=="QBIC") {
-            QBIC <- -2*LL + log(n)*k -2*(k*log(Q)+(lag.max+1-k)*log(1-Q))
-            AnICexact[isub]<-QBIC
-            m[[isub]] <- list(p=ModelLags, QBIC=QBIC)
+        if (method=="BICq") {
+            BICq <- -2*LL + log(n)*k -2*(k*log(Q)+(lag.max+1-k)*log(1-Q))
+            AnICexact[isub]<-BICq
+            m[[isub]] <- list(p=ModelLags, BICq=BICq)
             }
         if (method=="AIC"){
             AIC <- -2*LL+2*k
@@ -87,10 +90,10 @@ if (SubsetQ){ #subset. AR model subset selection.
             AnICexact[BestCandidates+1]<-EBIC
             m[[BestCandidates+1]] <- list(p=0, EBIC=EBIC)
         }
-        if (method=="QBIC") {
-            QBIC <- -2*LL + log(n) -2*(log(Q)+(lag.max)*log(1-Q)) 
-            AnICexact[BestCandidates+1]<-QBIC
-            m[[BestCandidates+1]] <- list(p=0, QBIC=QBIC)
+        if (method=="BICq") {
+            BICq <- -2*LL + log(n) -2*(log(Q)+(lag.max)*log(1-Q)) 
+            AnICexact[BestCandidates+1]<-BICq
+            m[[BestCandidates+1]] <- list(p=0, BICq=BICq)
         }
         if (method=="AIC"){
             AIC <- -2*LL+2
@@ -125,8 +128,14 @@ else  { #non-subset. AR model order selection.
     }
     m<-c(LagsEntering[IndCandidates]-1,AnICexact,AnICApprox)
     m<-matrix(m,ncol=3)
-    m<-m[order(AnICexact),]
-    m<-m[1:Best,]
+    if (Best==1) {
+        m<-m[order(AnICexact),drop=FALSE]
+        m<-m[1:Best,drop=FALSE]
+    }
+    else {
+        m<-m[order(AnICexact),]
+        m<-m[1:Best,]
+    }
     if (Best > 1)
         if (method=="AIC")
             dimnames(m)<-c(list(1:Best),list(c("p", "AIC-Exact", "AIC-Approx")))
@@ -142,3 +151,4 @@ else
     else
         as.vector(m[1])
 }
+

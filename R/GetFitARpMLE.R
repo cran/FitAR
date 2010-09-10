@@ -1,8 +1,7 @@
 `GetFitARpMLE` <-
 function(z, pvec){
-P <- max(pvec)
-stopifnot(length(z)>0, length(z)>P, length(pvec)>0)
-if (P==0){
+stopifnot(length(z)>0)
+if ((length(pvec)==1 && pvec==0) || length(pvec)==0){
     phiHat<-numeric(0)
     Iq<-TRUE
     constantTerm<-mean(z)
@@ -10,6 +9,8 @@ if (P==0){
     res<-z
     }
 else {
+	P <- max(pvec)
+	stopifnot(length(z)>P)
     ind <- rep(0, P+1)
     ind[pvec] <- NA
     ind[P+1] <- NA

@@ -4,7 +4,7 @@ stopifnot(length(z)>0, length(z)>=2*max(pvec), length(pvec)>0,all(pvec>=0))
 pVec<-pvec[pvec>0]
 y <- z-MeanValue
 n<-length(y)
-if (length(pVec)==0) 
+if (length(pVec)==0 || length(pvec)==0) 
     return(list(loglikelihood=-(n/2)*log(sum(y^2)/n),zetaHat=NULL,phiHat=NULL,convergence=0,algorithm="cubic"))
 PMAX <- max(pVec)
 if (PMAX == 1){

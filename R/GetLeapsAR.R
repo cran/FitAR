@@ -1,8 +1,11 @@
-`GetLeapsAR` <-
+GetLeapsAR <-
 function(z, lag.max=15, Criterion="UBIC", Best=3, Candidates=5, G=0.5, Q=0.25, level=0.99, ExactQ=FALSE){
 stopifnot(length(z)>0, length(z)>lag.max, lag.max>1, Best>0)
+is.wholenumber <-
+    function(x, tol = .Machine$double.eps^0.5)  abs(x - round(x)) < tol
+stopifnot(is.wholenumber(lag.max))
 method<-Criterion
-if (is.na(pmatch(method,c("UBIC","AIC","BIC","EBIC","QBIC","GIC"))))
+if (is.na(pmatch(method,c("UBIC","AIC","BIC","EBIC","BICq","GIC"))))
     method<-"UBIC"
 if (ExactQ){
     stop("Sorry this option is not available yet")
@@ -62,7 +65,7 @@ if (method=="UBIC")
     ic<- -2*LogL + log(n)*k + 2*lchoose(lag.max+1, k)
 if (method=="EBIC")
     ic<- -2*LogL + log(n)*(1+LagRange)+2*G*lchoose(lag.max, LagRange)
-if (method=="QBIC")
+if (method=="BICq")
     ic<- -2*LogL + log(n)*(1+LagRange)-2*(LagRange*log(Q)+(lag.max+1-LagRange)*log(1-Q)) 
 indBest<-order(ic)
 #extra step needed because leaps does not include null model
@@ -80,7 +83,7 @@ if (method=="BIC")
     ic<- -2*LogL + log(n)*k
 if (method=="UBIC")
     ic<- -2*LogL + log(n)*k + 2*lchoose(lag.max+1, k)
-if (method=="QBIC")
+if (method=="BICq")
     ic<- -2*LogL + log(n)*k-2*(k*log(Q)+(lag.max+1-k)*log(1-Q)) 
 icBest<-order(ic)[1:Best] #best models exact
 m<-as.list(numeric(Best))
@@ -96,13 +99,17 @@ for (i in 1:Best){
         m[[i]] <-list(p=p, BIC=ic[ind])
     if (method == "UBIC")
         m[[i]] <-list(p=p, UBIC=ic[ind])
-    if (method == "QBIC")
+    if (method == "BICq")
         m[[i]] <-list(p=p, BICq=ic[ind])
     }
 class(m)<-"Selectmodel"
 attr(m,"model")<-"ARp"
 if (Best>1)
-    m
-else
-    m[[1]]$p
+    ans<-m
+else {
+    ans <- m[[1]]$p
+	if (length(ans)==0)
+		ans<-0
+	}
+ans
 }

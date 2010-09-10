@@ -16,7 +16,7 @@ GetLeapsAR(z, lag.max = 15, Criterion = "UBIC", Best = 3, Candidates=5, G=0.5, Q
 \arguments{
   \item{z}{ts object or vector containing time series }
   \item{lag.max}{maximum order of the AR }
-  \item{Criterion}{default UBIC, other choices are "AIC", "BIC", "EBIC", "QBIC", "GIC" }
+  \item{Criterion}{default UBIC, other choices are "AIC", "BIC", "EBIC", "BICq", "GIC" }
   \item{Best}{the number of based selected. Ignore with "GIC". }
   \item{Candidates}{number of models initially selected using the approximate criterion }
   \item{G}{optional parameter for EBIC }
@@ -102,13 +102,13 @@ GetLeapsAR(z, lag.max=11, Criterion="BIC")
 GetLeapsAR(z, lag.max=15, Criterion="BIC")
 GetLeapsAR(z, lag.max=20, Criterion="BIC")
 
-#Example 3: Comparing GIC with BIC, AIC, UBIC and QBIC
+#Example 3: Comparing GIC with BIC, AIC, UBIC and BICq
 z <- log(lynx)
 GetLeapsAR(z, lag.max=15, Criterion="GIC", Best=1, level=0.99)
 GetLeapsAR(z, lag.max=15, Criterion="BIC", Best=1)
 GetLeapsAR(z, lag.max=15, Criterion="AIC", Best=1)
 GetLeapsAR(z, lag.max=15, Criterion="UBIC", Best=1)
-GetLeapsAR(z, lag.max=15, Criterion="QBIC", Best=1, Q=0.25)
+GetLeapsAR(z, lag.max=15, Criterion="BICq", Best=1, Q=0.25)
 
 }
 

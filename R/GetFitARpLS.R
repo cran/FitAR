@@ -1,8 +1,7 @@
 `GetFitARpLS` <-
 function(z, pvec){
-stopifnot(length(z)>0, length(z)>max(pvec))
-PMAX<-max(pvec)
-if (PMAX == 0  || length(pvec)==0){
+stopifnot(length(z)>0)
+if (length(pvec)==0 || pvec==0){
     phiHat<-numeric(0)
     constantTerm<-mean(z)
     res<-z-constantTerm
@@ -12,6 +11,8 @@ if (PMAX == 0  || length(pvec)==0){
     covHat<-numeric(0)
     }
 else {
+	PMAX<-max(pvec)
+	stopifnot(PMAX < length(z))
     Xy <- embed(z, PMAX+1)
     y <- Xy[,1]
     if (length(pvec)==1 && pvec == 1)

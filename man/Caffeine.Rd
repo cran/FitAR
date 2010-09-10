@@ -47,9 +47,10 @@ TimeSeriesPlot(Caffeine)
 a<-numeric(3)
 names(a)<-c("AIC", "BIC", paste(sep="","BIC(q=", paste(sep="",c(0.85),")")))
 z<-Caffeine
-a[1]<-SelectModel(z, lag.max=length(z)/4, ARModel="AR", Best=1, Criterion="AIC")
-a[2]<-SelectModel(z, lag.max=length(z)/4, ARModel="AR", Best=1, Criterion="BIC")
-a[3]<-SelectModel(z, lag.max=length(z)/4, ARModel="AR", Best=1, Criterion="QBIC", Q=0.85)
+lag.max <- ceiling(length(z)/4)
+a[1]<-SelectModel(z, lag.max=lag.max, ARModel="AR", Best=1, Criterion="AIC")
+a[2]<-SelectModel(z, lag.max=lag.max, ARModel="AR", Best=1, Criterion="BIC")
+a[3]<-SelectModel(z, lag.max=lag.max, ARModel="AR", Best=1, Criterion="BICq", Q=0.85)
 a
 }
 \keyword{datasets}

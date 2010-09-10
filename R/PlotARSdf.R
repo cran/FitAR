@@ -1,5 +1,5 @@
 `PlotARSdf` <-
-function(phi=NULL, theta=NULL, units="radial",logSdf=FALSE,InnovationVariance=1, main=NULL, sub=NULL, lwd=3, col="blue",  ...){
+function(phi=NULL, theta=NULL, units="radial",logSdf=FALSE,InnovationVariance=1, main=NULL, sub=NULL, lwd=3, col="blue", plotQ=TRUE, ...){
 sdf<-InnovationVariance
 if (!is.null(phi))  
     sdf<-ARSdf(phi)*sdf
@@ -16,7 +16,8 @@ yl<-"Spectral Density"
 if (logSdf){
     sdf<-log(sdf)
     yl<-"Log Sdf"
-    }    
-plot(f,sdf,type="l",xlab="frequency",ylab=yl, main=main, sub=sub, lwd=lwd, col=col, ...)
+    }
+if (plotQ)    
+	plot(f,sdf,type="l",xlab="frequency",ylab=yl, main=main, sub=sub, lwd=lwd, col=col, ...)
 invisible(matrix(c(f,sdf),ncol=2))
 }

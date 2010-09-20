@@ -6,19 +6,17 @@ The AIC/BIC/UBIC/EBIC/BICq criterion is used to select the best fitting AR or su
 When Best > 1, the result may be plotted using \code{plot}.
 }
 \usage{
-SelectModel(z, lag.max = 15, ARModel = c("AR", "ARz", "ARp"), Criterion = "default", Best = 3, Candidates = 5, G = 0.5, Q = 0.25)
+SelectModel(z, lag.max = 15, ARModel = c("AR", "ARz", "ARp"), Criterion = "default", Best = 3, Candidates = 5, t="default")
 }
 \arguments{
   \item{z}{ time series data }
   \item{lag.max}{ maximum order of autoregression }
   \item{ARModel}{ "AR" for full AR(p) or "ARp"/"ARz" corresponding to subset models}
   \item{Criterion}{ default is "BIC" for order selection and "BICq" for subset selection. 
-  Options: "AIC", "BIC", "UBIC", "EBIC" and "BICq". }
+  Options: "AIC", "BIC", "UBIC", "EBIC", "BICq" and "GIC". }
   \item{Best}{ final number of models to be selected }
   \item{Candidates}{ number of models initially selected using the approximate criterion}
-  \item{G}{ hyperparameter for EBIC }
-  \item{Q}{ byperparameter for BICq }
-
+  \item{t}{tuning parameter, EBIC, BICq, GIC  }
 }
 \details{
   McLeod and Zhang (2006) outline an approximate AIC/BIC selection algorithm.
@@ -29,8 +27,11 @@ SelectModel(z, lag.max = 15, ARModel = c("AR", "ARz", "ARp"), Criterion = "defau
   the approximate AIC/BIC rankings may not agree with the exact rankings. 
   This strategy is used for model selection for AR, ARz and ARp models.
   A plot method is available to graph the output.
-  The UBIC developed by Chen and Chen (2007) is an important extension of the 
+  The UBIC and EBIC developed by Chen and Chen (2007) are an extension of the 
   BIC criterion for subset selection.  In the non-subset case UBIC is equivalent to BIC.
+  The EBIC using a tuning parameter, G, where 0 <= G <= 1.
+  The BICq takes a tuning parameter, Q, where 0 < Q < 1.
+  The GIC takes a tuning parameter, p, where 0<p<0.25.
 }
 \value{
 When \eqn{\code{Best} = 1}, a vector is returned indicated the lag or lags included
@@ -55,9 +56,9 @@ McLeod, A.I. and Zhang, Y. (2006).
 Partial Autocorrelation Parameterization for Subset Autoregression.  
 Journal of Time Series Analysis, 27, 599-612.
 
-Chen, J. and Chen, Z. (2007).
+Chen, J. and Chen, Z. (2008).
 Extended Bayesian Information Criteria for Model Selection with Large Model Space.
-Preprint.
+Biometrika.
 
 }
 \author{ A.I. McLeod and Y. Zhang}
@@ -98,7 +99,6 @@ plot(out)
 out<-SelectModel(z, ARModel="AR", Criterion="BIC", Best=1)
 #
 #Example 4: Fit subset models to lynx series
-\dontrun{ #not run to save time in building package
 z<-log(lynx)
 #requires library leaps. Should be automatically when FitAR package is loaded.
 #first fit ARp
@@ -118,6 +118,14 @@ ans4<-FitAR(z, pvec, ARModel="ARz")
 #compare
 summary(ans3)
 summary(ans4)
-}
+#
+#Example 5: lynx data subset AR models
+#The AIC and BIC choose the same models as the GIC with t=0.1 and t=0.01 respectively.
+#An even more parsimonious model is chosen with t=0.001
+SelectModel(z, lag.max=15, ARModel="ARp", Criterion="GIC", Best=1, Candidates=5, t=0.1)
+SelectModel(z, lag.max=15, ARModel="ARp", Criterion="GIC", Best=1, Candidates=5, t=0.01)
+SelectModel(z, lag.max=15, ARModel="ARp", Criterion="GIC", Best=1, Candidates=5, t=0.001)
+ans<-SelectModel(z, lag.max=15, ARModel="ARp", Criterion="GIC", Best=3, Candidates=5, t=0.001)
+plot(ans)
 }
 \keyword{ ts }

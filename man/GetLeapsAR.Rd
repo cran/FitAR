@@ -10,7 +10,7 @@ ARp models.
 }
 
 \usage{
-GetLeapsAR(z, lag.max = 15, Criterion = "UBIC", Best = 3, Candidates=5, G=0.5, Q=0.25, level=0.99, ExactQ=FALSE)
+GetLeapsAR(z, lag.max = 15, Criterion = "UBIC", Best = 3, Candidates=5, t="default", ExactQ=FALSE)
 }
 
 \arguments{
@@ -19,9 +19,7 @@ GetLeapsAR(z, lag.max = 15, Criterion = "UBIC", Best = 3, Candidates=5, G=0.5, Q
   \item{Criterion}{default UBIC, other choices are "AIC", "BIC", "EBIC", "BICq", "GIC" }
   \item{Best}{the number of based selected. Ignore with "GIC". }
   \item{Candidates}{number of models initially selected using the approximate criterion }
-  \item{G}{optional parameter for EBIC }
-  \item{Q}{optional parameter for BICq }
-  \item{level}{optional parameter for GIC }
+  \item{t}{tuning parameter, EBIC, BICq, GIC  }
   \item{ExactQ}{exhaustive numeration using exact likelihood. Still under
     under development. NOT AVAILABLE IN THIS VERSION }
 }
@@ -36,6 +34,9 @@ refit to determine the exact likelihood function
 for each selected model. Based on this likelihood the UBIC/BIC/AIC is
 computed and then the best models are selected. The UBIC criterion was
 developed by Chen and Chen (2007).
+  The EBIC using a tuning parameter, G, where 0 <= G <= 1.
+  The BICq takes a tuning parameter, Q, where 0 < Q < 1.
+  The GIC takes a tuning parameter, p, where 0<p<0.25.
 }
 
 \value{
@@ -45,9 +46,9 @@ When 'Criterion' is one of UBIC, AIC, BIC, EBIC, BICq, a list with components:
   \item{AIC}{approximate AIC (McLeod and Zhang, 2006a, eqn. 15), if Criterion=="AIC"}
   \item{BIC}{approximate BIC (McLeod and Zhang, 2006a, eqn. 15), if Criterion=="BIC"}
   \item{EBIC}{approximate EBIC (McLeod and Zhang, 2006a, eqn. 15), if Criterion=="EBIC"}
-  \item{BICq}{approximate BICq (McLeod and Zhang, 2006a, eqn. 15), if Criterion=="BICq"}
+  \item{BICq}{approximate BICq, if Criterion=="BICq"}
+  \item{GIC}{approximate GIC, if Criterion=="GIC"}
 
-When 'Criterion' is GIC, 
 }
 
 \references{ 
@@ -62,6 +63,11 @@ Biometrika.
 Changjiang Xu and A. I. McLeod (2010).
 Bayesian information criterion with Bernoulli prior.
 Submitted for publication.
+
+Changjiang Xu and A. I. McLeod (2010).
+Model selection using generalized information criterion.
+Submitted for publication.
+
 }
 
 \author{ A.I. McLeod }
@@ -104,12 +110,13 @@ GetLeapsAR(z, lag.max=20, Criterion="BIC")
 
 #Example 3: Comparing GIC with BIC, AIC, UBIC and BICq
 z <- log(lynx)
-GetLeapsAR(z, lag.max=15, Criterion="GIC", Best=1, level=0.99)
 GetLeapsAR(z, lag.max=15, Criterion="BIC", Best=1)
 GetLeapsAR(z, lag.max=15, Criterion="AIC", Best=1)
 GetLeapsAR(z, lag.max=15, Criterion="UBIC", Best=1)
-GetLeapsAR(z, lag.max=15, Criterion="BICq", Best=1, Q=0.25)
-
+GetLeapsAR(z, lag.max=15, Criterion="BICq", Best=1, t=0.25)
+GetLeapsAR(z, lag.max=15, Best=1, Criterion="GIC", t=0.01)
+ans<-GetLeapsAR(z, lag.max=15, Best=3, Criterion="GIC", t=0.001)
+plot(ans)
 }
 
 \keyword{ ts }

@@ -12,6 +12,8 @@ CHANGES IN 'FitAR' VERSION 1.87 (2010-09-10)
     o    fixed bugs GetFitARp, GetARpLS, GetFitARz when pvec is numeric(0)
     o    fixed bug GetLeapsAR, does not return numeric(0)
     o    added vignette to accompany our BICq paper
+CHANGES IN 'FitAR' VERSION 1.88 (2010-09-20)
+    o    added GIC
 
 
 

@@ -50,7 +50,7 @@ z<-Caffeine
 lag.max <- ceiling(length(z)/4)
 a[1]<-SelectModel(z, lag.max=lag.max, ARModel="AR", Best=1, Criterion="AIC")
 a[2]<-SelectModel(z, lag.max=lag.max, ARModel="AR", Best=1, Criterion="BIC")
-a[3]<-SelectModel(z, lag.max=lag.max, ARModel="AR", Best=1, Criterion="BICq", Q=0.85)
+a[3]<-SelectModel(z, lag.max=lag.max, ARModel="AR", Best=1, Criterion="BICq", t=0.85)
 a
 }
 \keyword{datasets}

@@ -25,8 +25,8 @@ Methods for print, summary, coef, residuals, fitted and predict implemented.
 \tabular{ll}{
 Package: \tab FitAR\cr
 Type: \tab Package\cr
-Version: \tab 1.87\cr
-Date: \tab 2010-09-10\cr
+Version: \tab 1.88\cr
+Date: \tab 2010-09-20\cr
 License: \tab GPL (>= 2)\cr
 LazyLoad: \tab yes\cr
 LazyData: \tab yes\cr
@@ -96,6 +96,15 @@ DOI link: \url{http://dx.doi.org/10.1016/j.csda.2007.07.020}.
 McLeod, A.I. and Zhang, Y. (2008b).
 Improved Subset Autoregression: With R Package.
 Journal of Statistical Software.
+
+Changjiang Xu and A. I. McLeod (2010).
+Bayesian information criterion with Bernoulli prior.
+Submitted for publication.
+
+Changjiang Xu and A. I. McLeod (2010).
+Model selection using generalized information criterion.
+Submitted for publication.
+
 }
 
 \keyword{ ts }

@@ -14,6 +14,9 @@ CHANGES IN 'FitAR' VERSION 1.87 (2010-09-10)
     o    added vignette to accompany our BICq paper
 CHANGES IN 'FitAR' VERSION 1.88 (2010-09-20)
     o    added GIC
+CHANGES IN 'FitAR' VERSION 1.89 (2010-12-01)
+    o    fixed NAMESPACE error
+
 
 
 

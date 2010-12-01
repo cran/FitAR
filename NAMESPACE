@@ -1,6 +1,5 @@
-imports("leaps", "lattice", "ltsa")
-imports("bestglm")
-#importFrom("bestglm", "to.binary")
+import("leaps", "lattice", "ltsa")
+import("bestglm")
 
 export(
 "AR1Est",

@@ -25,8 +25,8 @@ Methods for print, summary, coef, residuals, fitted and predict implemented.
 \tabular{ll}{
 Package: \tab FitAR\cr
 Type: \tab Package\cr
-Version: \tab 1.89\cr
-Date: \tab 2010-12-01\cr
+Version: \tab 1.91\cr
+Date: \tab 2011-02-17\cr
 License: \tab GPL (>= 2)\cr
 LazyLoad: \tab yes\cr
 LazyData: \tab yes\cr

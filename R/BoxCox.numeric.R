@@ -4,7 +4,7 @@ n<-length(object)
 if (n <= 20 || IIDQ)
     p<-0
 else 
-    p<-SelectModel(object, lag.max=min(30,length(object)/4), Best=1)
+    p<-SelectModel(object, lag.max=min(30,round(length(object)/4)), Best=1)
 z<-as.vector(object)
 if (min(z) <= 0){
     cat(" minimum data value <= 0 so -min+0.25 added to all values", fill=TRUE)

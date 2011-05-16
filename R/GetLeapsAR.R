@@ -11,11 +11,11 @@ if (ExactQ){
     stop("Sorry this option is not available yet!")
     M<-2^lag.max
     logL <- numeric(M)
-    logL[1] <- GetFitARpMLE(z, p=0)$loglikelihood
+    logL[1] <- GetFitARpMLE(z, pvec=0)$loglikelihood
     for (i in 1:(M-1)){
         ind<-as.logical(rev(to.binary(i, lag.max)))
         pvec <- (1:lag.max)[ind]
-        out<-GetFitARpMLE(z, p=pvec)
+        out<-GetFitARpMLE(z, pvec=pvec)
         logL[i+1] <- out$loglikelihood
     }
 }

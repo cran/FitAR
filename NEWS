@@ -18,7 +18,8 @@ CHANGES IN 'FitAR' VERSION 1.89 (2010-12-01)
     o    fixed NAMESPACE error
 CHANGES IN 'FitAR' VERSION 1.91 (2011-02-17)
     o    corrected bug in BoxCox.numeric()
-
+ CHANGES IN 'FitAR' VERSION 1.92 (2011-02-17)
+    o    corrected warning in GetFitARpMLE
 
 
 

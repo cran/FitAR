@@ -1,5 +1,4 @@
 `InvertibleQ` <-
 function(phi){
-    all(abs(ARToPacf(phi))<1)
+    identical(TRUE,try(all(abs(ARToPacf(phi))<1),silent=TRUE))
 }
-

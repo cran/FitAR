@@ -1,5 +1,5 @@
+useDynLib(FitAR, asBinary)
 import("leaps", "lattice", "ltsa")
-import("bestglm")
 
 export(
 "AR1Est",
@@ -48,6 +48,7 @@ export(
 "TacvfAR",
 "TacvfMA",
 "TimeSeriesPlot",
+"toBinary",
 "UnitRootTest",
 "VarianceRacfAR",
 "VarianceRacfARp",

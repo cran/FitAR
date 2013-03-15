@@ -1,4 +1,4 @@
-to.binary <-
+toBinary <-
 function(n, k=ceiling(logb(n+1, base=2)))
 {
 if (n < 0)
@@ -6,7 +6,7 @@ if (n < 0)
 if (!is.loaded("asBinary"))
     stop("asBinary not loaded")
 m <- numeric(k)
-z<-.C("asBinary", as.integer(n), as.integer(m), as.integer(k), PACKAGE="bestglm")[[2]]
+z<-.C("asBinary", as.integer(n), as.integer(m), as.integer(k))[[2]]
 z   
 }
 

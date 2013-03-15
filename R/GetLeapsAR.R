@@ -13,7 +13,7 @@ if (ExactQ){
     logL <- numeric(M)
     logL[1] <- GetFitARpMLE(z, pvec=0)$loglikelihood
     for (i in 1:(M-1)){
-        ind<-as.logical(rev(to.binary(i, lag.max)))
+        ind<-as.logical(rev(toBinary(i, lag.max)))
         pvec <- (1:lag.max)[ind]
         out<-GetFitARpMLE(z, pvec=pvec)
         logL[i+1] <- out$loglikelihood

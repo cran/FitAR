@@ -1,3 +1,7 @@
+CHANGES IN 'FitAR' VERSION 1.93 (2013-03-15)
+    o    removed dependency on bestglm
+    o    added function toBinary()
+    o    minor adjustment to InvertibleQ() and PacfToAR()	
 CHANGES IN 'FitAR' VERSION 1.85 (2010-08-27)
     o    BICqLL() finds optimal model using GIC	
     o    GetLeapsAR() added GIC, BICq, EBIC
